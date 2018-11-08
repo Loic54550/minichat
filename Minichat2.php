@@ -8,25 +8,26 @@
         <title>Mini-chat2</title>
     </head>
     <body>
-        <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="jumbotron">
-                <img src="Sorting_bubblesort_anim.gif">   
-                <h1 class="display-4">Bienvenue à Tous</h1>
-                <p class="lead">Les algos sont nos amis pour la vie.</p>
-                <hr class="my-4">
+        <div class="row justify-content-md-center">
+            <div class="col-md-6 text-center">
+                <div class="jumbotron">
+                    <img src="anime.gif">   
+                    <h1 class="display-4">Welcome to all</h1>
+                    <p class="lead">Algos are our friends for life.</p>
+                    <hr class="my-4">
+                </div>
             </div>
         </div>
         <div>
             <form>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Adresse Email</label>
+                    <label for="exampleInputEmail1">Email adress</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ex:linda@gmail.com">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Mot de Passe</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de Passe">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -40,47 +41,5 @@
             </p>
             </form>
         </div>
-
-
-
-
-
-
-
-
-<?php
-// Connexion à la base de données
-try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
-}
-catch(Exception $e)
-{
-    die('Erreur : '.$e->getMessage());
-}
-
-// Récupération des 20 derniers messages
-$reponse = $bdd->prepare('SELECT * 
-                        FROM minichat 
-                        LEFT JOIN utilisateur 
-                            ON utilisateur.id = minichat.utilisateurId; 
-                        ORDER BY ID 
-                        DESC LIMIT 0, 20'
-);
-
-// Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
-while ($donnees = $reponse->fetch()) {
-    echo $donnees['pseudo'] . " " . $donnees['message'];
-}
-
-
-if (isset($_POST['email'])) {
-    $req = $bdd->prepare('INSERT INTO item(email, mdp) VALUES(:email, :mdp)');
-    $req->bindParam(":mdp", $_POST['mdp']);
-    $req->bindParam(":email", $_POST['email']);
-    $req->execute();
-}
-
-?>
     </body>
 </html>

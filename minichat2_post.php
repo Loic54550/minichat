@@ -1,4 +1,5 @@
-<?php
+<?php 
+
 // Connexion à la base de données
 try
 {
