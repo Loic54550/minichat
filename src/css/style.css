@@ -3,10 +3,33 @@ form {
 }
 
 .wrapper {
-	background-color: black;
+	/*background-color: black;*/
 }
 
 .jumbotron {
 	background-color: black;
 }
+
+.modal{
+	background-color: black;
+
+}
+
+.modal-body{
+	background-color: black;
+}
+
+.modal-footer{
+	background-color: black;
+
+}
+
+
+body{
+	color: white;
+	/*background-image: url("../img/luxury.jpg");*/
+	background-color: black;
+
+}
+
 
