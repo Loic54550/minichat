@@ -50,11 +50,12 @@ function getUser($email) {
     return $reponse;
 }
 
-function insertUser($mdp, $email, $pseudo) {
+function insertUser($mdp, $email) {
     $bdd = co();
-    $req = $bdd->prepare('INSERT INTO utilisateur (pseudo, email, mdp) VALUES(:pseudo, :email, :mdp)');
-    $req->bindParam(":pseudo", $pseudo);
+    $req = $bdd->prepare('INSERT INTO utilisateur (email, mdp) VALUES (:email, :mdp)');
     $req->bindParam(":mdp", $mdp);
     $req->bindParam(":email", $email);
     $req->execute();
 }
+ 
+
