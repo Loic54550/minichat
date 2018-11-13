@@ -16,14 +16,13 @@ form {
 }
 
 .modal-body{
-	background-color: black;
+	background-image: url("../img/nen.gif");
 }
 
 .modal-footer{
 	background-color: black;
 
 }
-
 
 
 body{
